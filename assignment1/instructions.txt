@@ -1,0 +1,2 @@
+The program is to be run on a terminal. The Http lig file sshould be a parameter to the file.
+After every record displayed press enter to view the next record..

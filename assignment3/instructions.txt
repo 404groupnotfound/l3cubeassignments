@@ -1,0 +1,8 @@
+1. Make a change in the note pad.
+2. commit it by running through command line
+    svc filename        //version 0 is made
+3. make another change and commit using svc again    //version 1 is made
+4. view the previous versions by using 
+    svc version no
+    e.g   svc 0, svc 1
+

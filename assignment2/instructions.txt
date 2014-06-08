@@ -1,0 +1,6 @@
+The following code has been compiled and tested on Ubuntu.
+
+STEPS:-
+
+1.enter N i.e. number of randomly chosen people whose birthday is known
+2.output is the probability that two peoples bday will be the same

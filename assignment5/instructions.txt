@@ -1,0 +1,16 @@
+The following code has been compiled and tested on Ubuntu.
+
+STEPS:-
+
+1. open terminal
+2. login as superuser using su root and password
+3. traverse to the path where the following file is placed using cd
+4. type gcc diskdup.c -o diskdup
+5. type ./diskdup
+6. enter the mount point of hard disk (mount point can be obtained using mount command)
+7. sets of twenty duplicates files along with their names and count will be displayed
+8. if you want to select a particular file from 20 duplicate file list ,press 0,then specify file serial number.
+    else if you want the next 20 duplicate files list press 1
+9. if 0,then specify serial number of file,a list of paths where duplicate files of that name are located is displayed
+10.select appropriate path to delete
+11.terminate

@@ -11,7 +11,7 @@ temp=365;
 while(N!=0)
 {
 ans=1;
-cout<<"\nEnter N:";
+cout<<"\nEnter N:";                 //number of people
 cin>>N;
 int i;
 int j=364;
@@ -20,7 +20,7 @@ for(i=1;i<N;i++)
     j=j-1;
     ans=(ans*(double)j)/temp;
 }
-cout<<"\t"<<(1-ans);
+cout<<“Probability of people with same birthday:-”<<(1-ans);            //probability of people with same birthday
 }
 return 0;
 }

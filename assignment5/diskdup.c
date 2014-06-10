@@ -23,7 +23,7 @@ int opt;
 int i=0,j=0;
 char reqpath[100];
 
-printf("\nPlease enter the mountpoint of the harddisk:");
+printf("\nPlease enter the mountpoint of the harddisk:");      
 fgets (reqpath, 100, stdin);
 
 for(i=0;i<=100;i++)
@@ -49,10 +49,10 @@ for(i=0;i<=100;i++)
 
 strcpy(command,"cd ");
 strcat(command,reqpath);
-strcat(command," && find -type f -printf '%f\n' | sort|uniq -c -d > /duplicates.txt");
+strcat(command," && find -type f -printf '%f\n' | sort|uniq -c -d > /duplicates.txt");  //find finds all files,sort sorts them,uniq -c -d displays only duplicates with count 
 system((char *)command);
    
-fp= fopen("/duplicates.txt","r");
+fp= fopen("/duplicates.txt","r");   //file containing all duplicates
 dcount=0;
 opt=1;
 flag=1;
@@ -67,7 +67,7 @@ while(1)
 			}
 	if(opt!=0)
 	{	
-	printf("Sr.No.)  Count   |   filename \n");
+	printf("Sr.No.)  Count   |   filename \n");     //displaying 20duplicates 
 	count=0;
 	opt=0;
 	}
@@ -104,21 +104,21 @@ while(1)
 }
 fclose(fp);
 
-printf("\nEnter the correct serial number of the filename:- \n");
+printf("\nEnter the correct serial number of the filename:- \n");  //required duplicate file found
 scanf("%d",&opt);
 while(opt>count || opt<=0)
 {
-printf("\nPlease enter a valid Serial Number:");
+printf("\nPlease enter a valid Serial Number:");       //incorrect file serial number
 scanf("%d",&opt);
 }
 strcpy(file,dupli[opt-1]);
 
 while(1)
 {
-sprintf(command, "cd %s  && find -type f -name %s >/path.txt",reqpath,file);
+sprintf(command, "cd %s  && find -type f -name %s >/path.txt",reqpath,file); //display all the paths for the duplicate file
 system((char *)command);
 count=0;
-fp=fopen("/path.txt","r");
+fp=fopen("/path.txt","r");   //path.txt contains all the paths for a duplicate file
 ch=fgetc(fp);
 pcount=0;
 while(ch != EOF)
@@ -144,7 +144,7 @@ printf("Enter the path choice for %s to be deleted or 0 to terminate deletion Pr
 scanf("%d",&ch);
 while(ch>pcount || ch<0)
 {
-printf("Enter the Correct path choice for %s to be deleted or 0 to terminate deletion Process:-",file);
+printf("Enter the Correct path choice for %s to be deleted or 0 to terminate deletion Process:-",file);   //delete file at particular path
 scanf("%d",&ch);
 }
 
@@ -169,7 +169,7 @@ for(i=0;i<=200;i++)
 	}
 		
 }
-sprintf(command, "cd %s && rm %s",reqpath,path[ch-1]);
+sprintf(command, "cd %s && rm %s",reqpath,path[ch-1]);  //delete file at particular path
 system((char *)command);
 printf("\nThe Specified file has been deleted");
 pcount--;
@@ -179,7 +179,7 @@ break;
 
 }
 
-system("cd / && rm duplicates.txt");
-system("cd / && rm path.txt");
+system("cd / && rm duplicates.txt");    //delete file containing duplicates
+system("cd / && rm path.txt");          //delete file containing paths
 return 0;
 }

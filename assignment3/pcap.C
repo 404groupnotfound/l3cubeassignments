@@ -14,6 +14,9 @@ struct ip
         u_short totallength;     		/* total length */
         u_short identification;      		/* identification */
         u_short offset;     			/* fragment offset field */
+	#define DF 0x4000                 	/* dont fragment flag        */
+	#define MF 0x2000                 	/* more fragments flag       */
+	#define OFFMASK 0x1fff            	/* mask for fragmenting bits */
         u_char ttl;      			/* time to live */
         u_char protocol;        		/* protocol */
         u_short checksum;     			/* checksum */
@@ -84,6 +87,13 @@ int main(int argc, char *argv[])
 	
 
 	int no_of_packets=0;
+	int total_bytes=0;
+	float total_time;
+	int total_time_milli;
+	long int time0;
+	long int time0_milli;
+	long int time1;
+	long int time1_milli;
 	int returnvalue;
 	int majorversion;
 	int minorversion;
@@ -105,9 +115,16 @@ int main(int argc, char *argv[])
 	while(returnvalue =pcap_next_ex(handle, &header, &data) >=0)
 	{
 		no_of_packets++;
+		if(no_of_packets==1)
+		{
+			time0=header->ts.tv_sec;
+			time0_milli=header->ts.tv_usec;
+		}
 		printf("Packet Number :%d\n",no_of_packets);
 		printf("Packet Size :%d bytes\n",header->len);
 		printf("Packet Size captured in file :%d bytes\n",header->caplen);
+		total_bytes=total_bytes+header->len;
+		printf("Total Bytes:%d\n",total_bytes);
 		printf("Packet capture time :%ld:%ld seconds\n",header->ts.tv_sec,header->ts.tv_usec);
 		ethernetheader=(struct eth *)(data);
 		printf("Source MAC: %s\n", ether_ntoa(&ethernetheader->source));
@@ -200,8 +217,21 @@ int main(int argc, char *argv[])
 		
 		
 		
-		
+		time1=header->ts.tv_sec;
+		time1_milli=header->ts.tv_usec;
 		printf("\n\n");
 	}
+	total_time=time1-time0;
+	total_time_milli=time1_milli-time0_milli;
+	printf("Summary:-\n");
+	printf("Total Number of packets captured: %d\n",no_of_packets);
+	printf("Total Number of Bytes captured: %d Bytes\n",total_bytes);
+	printf("Average Packet Size: %f Bytes\n",(float)total_bytes/no_of_packets);
+	total_time_milli=total_time_milli/1000;
+	total_time=total_time+(total_time_milli/1000.0);
+	printf("Total Capture Duration: %f sec\n",total_time);
+	printf("Data Byte Rate: %f bytes/sec\n",total_bytes/total_time);
+	printf("Data Bit Rate: %f bits/sec\n",total_bytes*8/total_time);
+	printf("Average Packet Rate: %d\n\n",no_of_packets/(int)total_time);
 	return 0;
 }

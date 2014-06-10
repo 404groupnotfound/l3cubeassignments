@@ -11,7 +11,7 @@ Compiling:-
 
 1. To compile the code successfully change the current directory to the one which contains the code. 
 2. Next type gcc pcap.c -lpcap.
-3. This will compie the code and produce an executble.
+3. This will compile the code and produce an executable.
 
 Executing:-
 1. Next to run the executable you must pass the name of the pcap file to by analyzed.

@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 	struct arp *arpheader;
 	struct tcp *tcpheader;
 	
-
+	int i;
 	int no_of_packets=0;
 	int total_bytes=0;
 	float total_time;
@@ -202,13 +202,13 @@ int main(int argc, char *argv[])
 				printf("Operation: ARP Reply\n");
 			}
 			printf("Source IP Address :");
-			for(int i=0; i<4;i++)
+			for(i=0; i<4;i++)
 			{
         			printf("%d.", arpheader->senderip[i]);
 			} 
 			printf("\n");
 			printf("Destination IP Address :");
-			for(int i=0; i<4;i++)
+			for(i=0; i<4;i++)
 			{
         			printf("%d.", arpheader->targetip[i]);
 			} 

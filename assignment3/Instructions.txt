@@ -1,10 +1,10 @@
-The following code has been compied and tested in Linux Environment.
+The following code has been compiled and tested in Linux Environment.
 
 Requirements:-
 To run this code you need to have installed the libpcap library.
 
 To install it in Ubuntu execute the following command:
-sudo apt-get install libpcap-dev
+sudo apt-get install libpcap0.8-dev
 
 
 Compiling:-

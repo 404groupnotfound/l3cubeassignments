@@ -1,0 +1,19 @@
+The following code has been compiled and tested in Linux Environment.
+
+Requirements:-
+To run this code you need to have installed the libpcap library.
+
+To install it in Ubuntu execute the following command:
+sudo apt-get install libpcap0.8-dev
+
+
+Compiling:-
+
+1. To compile the code successfully change the current directory to the one which contains the code. 
+2. Next type gcc pcap.c -lpcap.
+3. This will compile the code and produce an executable.
+
+Executing:-
+1. Next to run the executable you must pass the name of the pcap file to by analyzed.
+2. To run it type ./a.out mypcapfile.pcap.
+3. The code will run and show the output in the terminal.

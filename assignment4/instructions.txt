@@ -1,3 +1,5 @@
+The code has been compiled and tested on Windows 7. 
+
 1. Make a change in the note pad.
 2. commit it by running through command line
     svc filename        //version 0 is made

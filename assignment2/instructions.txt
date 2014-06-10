@@ -1,6 +1,16 @@
 The following code has been compiled and tested on Ubuntu.
 
+
+FOR birthdayp.c(based on mathematical formula)
+
 STEPS:-
 
 1.enter N i.e. number of randomly chosen people whose birthday is known
-2.output is the probability that two peoples bday will be the same
+2.output is the probability that birthday of two people will be the same
+
+
+FOR randombdaybdays.c(based on random experiments)
+
+STEPS:-
+1.enter the number of people
+2.based on the pseudo random generator birthdays will be generated and accordingly probability of people with same birthday is computed 

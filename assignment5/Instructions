@@ -1,0 +1,12 @@
+1. The first step is to run the executable with root permissions
+2. Enter the valid path to the directory to find duplicates(mountpoint for harddisk/pendrive).
+   Any directory path is acceptable. 
+   The Chosen directory works as root node for the program and will find duplicates inside 
+   the directory ony.
+3. The lsiting of duplicates will begin(20 at a time) and will proceed till list of duplicates
+   is over or the user presses 0 if he/she finds the desired file.
+4. Enter the serial number of the file and the paths where the file is located will be displayed. 
+   Enter the serial number of the path where the deletion is required to be done.
+5. The file at the chosen path will be deleted and the remaining copy paths will be displayed 
+   again. This will go an as long as a copy exists or the user presses 0 after he deletes the
+   ones not required.  

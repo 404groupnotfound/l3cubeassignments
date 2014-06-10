@@ -178,5 +178,8 @@ if(pcount==0)
 break;
 
 }
+
+system("cd / && rm duplicates.txt");
+system("cd / && rm path.txt");
 return 0;
 }
